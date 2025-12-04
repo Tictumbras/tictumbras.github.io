@@ -1,0 +1,94 @@
+/* Apparition du bas vers le haut (plus moderne que fade-in simple) */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.fade-up {
+    /* Utilisation d'une courbe de bézier pour un effet plus naturel */
+    animation: fadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Flottaison Photo - Plus douce */
+@keyframes floating {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+}
+.photo.floating {
+    animation: floating 5s ease-in-out infinite;
+}
+
+
+/* --- Animation du Titre Principal (Dumont Tom) --- */
+
+/* Style pour l'animation machine à écrire infinie */
+.typing-title {
+    overflow: hidden;
+    border-right: .1em solid var(--accent-color); /* Curseur doré */
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .05em;
+    width: fit-content; /* S'adapte au contenu */
+    max-width: 0;
+    /* Animation: Écriture/Effacement + Clignotement infini */
+    animation: 
+        typing 5s steps(30, end) infinite,
+        blink-caret .9s step-end infinite;
+}
+/* Le conteneur doit être centré pour que fit-content fonctionne bien */
+.title-container { display: flex; justify-content: center; margin-bottom: 40px;}
+
+@keyframes typing {
+    0% { max-width: 0; }
+    40% { max-width: 100%; } /* Écrit en 40% du temps (2s) */
+    50% { max-width: 100%; } /* Pause de 10% (0.5s) */
+    100% { max-width: 0; }   /* Effacé et prêt à recommencer (2.5s) */
+}
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--accent-color); }
+}
+
+
+/* --- NOUVEAU : Animation des Titres de Section (Mes projets, Diplômes...) --- */
+
+/* Style pour l'animation machine à écrire unique */
+.typewriter-section-title {
+    overflow: hidden;
+    border-right: .1em solid var(--accent-color); /* Curseur doré */
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .05em;
+    width: fit-content;
+    max-width: 0;
+    /* Animation: Écriture unique + Clignotement qui s'arrête */
+    animation: 
+        typing-section 2.5s steps(30, end) forwards,
+        blink-caret-once .8s step-end 6 forwards; 
+    /* Délai pour l'apparition des titres de section après le chargement du titre principal */
+    animation-delay: 1.5s;
+}
+
+@keyframes typing-section {
+    from { max-width: 0 }
+    to { max-width: 100% }
+}
+
+/* Clignotement qui s'arrête (6 itérations) */
+@keyframes blink-caret-once {
+    from, to { border-color: transparent }
+    50% { border-color: var(--accent-color); }
+}
+
+
+/* NOUVEAU : Animation de remplissage des barres de compétences */
+@keyframes fillProgress {
+    from { width: 0; }
+    /* Le 'to' est géré par le style inline width: XX% dans le HTML */
+}

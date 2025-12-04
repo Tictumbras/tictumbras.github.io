@@ -1,0 +1,366 @@
+:root {
+    /* --- PALETTE DE COULEURS MISE À JOUR --- */
+    --primary-color: #0A66C2; /* Bleu Linkedin */
+    --primary-dark: #004182;
+    
+    /* Couleur Mail (Cyan) */
+    --secondary-color: #29B6F6; 
+    
+    /* NOUVEAU : Troisième Bleu pour le Téléphone (Bleu Action) */
+    --tertiary-color: #007BB5; 
+
+    --ice-blue-color: #A9D2E3; /* NOUVEAU : Bleu Ciel Gris "Glace" (plus foncé) */
+
+    --accent-color: #FFD700; /* Or pour les petites touches (reste) */
+    
+    --text-color-nav: #ffffff;
+    --text-color-dark: #2c3e50; 
+    --text-color-light: #7f8c8d;
+    
+    --bg-color-nav: rgba(15, 23, 42, 0.9); /* Bleu nuit un peu plus foncé */
+    
+    /* Effet verre */
+    --glass-bg: rgba(255, 255, 255, 0.90); 
+    --glass-border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #0f172a; /* Fond de secours bleu sombre */
+    background-image: url("background.png"); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed; 
+    color: var(--text-color-dark);
+    overflow-x: hidden;
+}
+
+/* --- Navigation --- */
+nav {
+    background: var(--bg-color-nav);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* Ombre un peu plus marquée */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.nav-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color-nav);
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background-color: rgba(41, 182, 246, 0.2); /* Lueur bleue au survol */
+    color: var(--secondary-color);
+}
+
+/* Lang Switcher */
+.lang-switcher button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 28px; 
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: grayscale(0.8);
+    padding: 0 5px;
+}
+
+.lang-switcher button:hover,
+.lang-switcher button.active {
+    transform: scale(1.2);
+    filter: grayscale(0);
+}
+
+/* --- Layout --- */
+.page {
+    max-width: 900px;
+    background: transparent; 
+    padding: 30px 20px;
+    margin: 20px auto 60px auto;
+}
+
+.two-column-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+@media (min-width: 768px) {
+    .two-column-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* --- Cards Glassmorphism --- */
+.content-box {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: var(--glass-border);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+    
+    /* BORDURE GAUCHE : Utilise maintenant le bleu cyan */
+    border-left: 5px solid var(--secondary-color);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.hover-lift:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.4);
+    border-left-color: var(--primary-color);
+}
+
+/* --- Typographie --- */
+h1 {
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--ice-blue-color);
+    font-size: 3em;
+    font-weight: 700;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    letter-spacing: -1px;
+}
+
+h2 {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+.section-subtitle {
+    color: var(--ice-blue-color);
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+h3 {
+    color: var(--text-color-dark);
+    font-weight: 600;
+    font-size: 1.2em;
+    margin: 0 0 10px 0;
+    display: inline-block;
+}
+
+p, li {
+    font-size: 16px;
+    color: var(--text-color-dark);
+    line-height: 1.7;
+}
+.text-center { text-align: center; }
+
+/* --- Photo --- */
+.photo {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 35px auto;
+    border: 5px solid rgba(41, 182, 246, 0.3);
+    box-shadow: 0 0 30px rgba(41, 182, 246, 0.4);
+}
+
+/* --- Projets --- */
+.project-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+.project-icon {
+    font-size: 24px;
+    color: var(--primary-color);
+    background: rgba(10, 102, 194, 0.1);
+    padding: 10px;
+    border-radius: 12px;
+}
+.tech-badges {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.badge {
+    background: var(--text-color-dark);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 500;
+}
+
+/* --- Diplômes & Certifs --- */
+.diplom-item, .certif-item { padding: 25px; }
+.diplom-item h3 { border-bottom: none; }
+.school-info { margin-bottom: 5px; color: #555; }
+.speciality { color: var(--primary-color); font-weight: 500; }
+
+.certif-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px;}
+.certif-icon { color: var(--accent-color); font-size: 1.2em;}
+.small-desc { font-size: 0.9em; color: var(--text-color-light); margin-top: -5px;}
+
+/* NOUVEAU STYLE : Bouton de certification */
+.certif-link-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    color: white;
+    width: fit-content; /* S'adapte à la taille du texte */
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+/* Utilisation du bleu Linkedin pour les boutons de certification */
+.certif-link-btn.primary-btn { 
+    background-color: var(--primary-color); 
+}
+
+/* Effet hover léger */
+.certif-link-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px -5px rgba(0,0,0,0.3);
+    filter: brightness(1.1);
+}
+
+/* --- Compétences --- */
+.skill-category-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    color: var(--primary-color);
+    font-size: 1.3em;
+    border-bottom: 2px solid rgba(0,0,0,0.05);
+    padding-bottom: 10px;
+}
+.skill-bar-container { margin-bottom: 20px; }
+.skill-bar-container.small { margin-bottom: 15px; }
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 0.95em;
+}
+
+.progress-bar {
+    height: 10px;
+    background-color: rgba(0,0,0,0.08);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress {
+    height: 100%;
+    /* Dégradé Bleu clair vers Bleu foncé */
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+    border-radius: 10px;
+    width: 0; 
+    transition: width 1.5s ease-in-out;
+    animation: fillProgress 1.5s ease-out forwards;
+}
+.skill-bar-container:nth-child(2) .progress { animation-delay: 0.2s; }
+.skill-bar-container:nth-child(3) .progress { animation-delay: 0.4s; }
+.skill-bar-container:nth-child(4) .progress { animation-delay: 0.6s; }
+
+/* Soft Skills */
+.soft-skills-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.soft-skills-list li {
+    background: rgba(41, 182, 246, 0.15);
+    color: var(--primary-dark);
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-weight: 500;
+    font-size: 0.9em;
+    display: flex; align-items: center; gap: 8px;
+}
+.soft-skills-list li::before {
+    content: '\f00c'; 
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: var(--secondary-color);
+}
+
+/* --- Contact --- */
+.contact-actions {
+    /* Contient Mail et Téléphone */
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 15px; 
+}
+
+/* Conteneur pour LinkedIn seul */
+.contact-actions-secondary {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px; 
+    padding-top: 15px;
+    border-top: 1px dashed rgba(0, 0, 0, 0.1); 
+}
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    color: white;
+}
+/* Styles des boutons */
+.contact-btn.mail { background-color: var(--secondary-color); }
+.contact-btn.linkedin { background-color: var(--primary-color); }
+.contact-btn.phone { background-color: var(--tertiary-color); } 
+
+.contact-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px -5px rgba(0,0,0,0.3);
+    filter: brightness(1.1);
+}
